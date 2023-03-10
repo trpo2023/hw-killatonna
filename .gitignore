@@ -1,0 +1,8 @@
+$ cat .gitignore
+main
+*.[oa]
+*~
+*swp
+bin/
+*.txt
+
