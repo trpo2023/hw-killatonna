@@ -1,2 +1,2 @@
-run: geometry.c geometry
-		gcc -Wall -Werror -o run geometry && ./geometry && rm -f run
+geometry:
+	gcc -Wall -Werror -o run geometry.c && ./geometry && rm -f run
