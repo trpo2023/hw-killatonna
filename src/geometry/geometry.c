@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "square.h"
 #define pi 3.14159265358979323846
 
 int main()
@@ -23,11 +24,11 @@ int main()
 
     fgets(input, sizeof(input), stdin);
 
-    for (int j = 0; j < strlen(input); j++) {
+    for (unsigned int j = 0; j < strlen(input); j++) {
         input[j] = tolower(input[j]);
     }
 
-    for (int j = 0, m = 0; j < strlen(input); j++) {
+    for (unsigned int j = 0, m = 0; j < strlen(input); j++) {
         if ((input[j]) == ' ' && (input[j + 1] == ' '))
             continue;
         else {
@@ -53,7 +54,7 @@ int main()
             error_bracket_close = strlen(object);
         }
 
-        for (int j = 0; j < strlen(object); j++) {
+        for (unsigned int j = 0; j < strlen(object); j++) {
             if (object[j] == '(') {
                 bracket_open++;
             }
@@ -100,7 +101,7 @@ int main()
         int indexX = index;
         for (int j = 0, point = 0, minus = 0; j < index; j++) {
             if (x[0] == '.') {
-                for (int k = 0; k < strlen(circle) + 1; k++)
+                for (unsigned int k = 0; k < strlen(circle) + 1; k++)
                     printf(" ");
                 printf("^\n");
                 printf("Error at collum %ld: expected '<double>'\n",
@@ -142,7 +143,7 @@ int main()
 
         for (int j = 0, point = 0, minus = 0; j < index; j++) {
             if (y[0] == '.') {
-                for (int k = 0; k < strlen(circle) + indexX + 2; k++)
+                for (unsigned int k = 0; k < strlen(circle) + indexX + 2; k++)
                     printf(" ");
                 printf("^\n");
                 printf("Error at collum %ld: expected '<double>'\n",
@@ -180,7 +181,7 @@ int main()
         radius_num = atof(radius);
         for (int j = 0, point = 0, minus = 0; j < index; j++) {
             if (radius[0] == '.') {
-                for (int k = 0; k < strlen(circle) + indexX + indexY + 4; k++)
+                for (unsigned int k = 0; k < strlen(circle) + indexX + indexY + 4; k++)
                     printf(" ");
                 printf("^\n");
                 printf("Error at collum %ld: expected '<double>'\n",
@@ -190,7 +191,7 @@ int main()
             if (radius[j] == '.')
                 point++;
             if (radius[j] == '-') {
-                for (int k = 0; k < i - strlen(radius) + 2; k++)
+                for (unsigned int k = 0; k < i - strlen(radius) + 2; k++)
                     printf(" ");
                 printf("^\n");
                 printf("Error at collum %d: expected positive number\n", i);
@@ -211,14 +212,15 @@ int main()
                 return 3;
             }
         }
-
-        if (i + 1 != strlen(object) - 1) {
+        
+        if (i + 1u != strlen(object) - 1) {
             printf("Error at column %d: unexpected token", i);
             return 4;
         }
         printf("%s", object);
-        area_num = pi * radius_num * radius_num;
-        perimetr_num = 2 * pi * radius_num;
+        /*area_num = pi * radius_num * radius_num;
+        perimetr_num = 2 * pi * radius_num;*/
+        square(radius_num, &area_num, &perimetr_num);
         printf("x = %f\ny = %f\nradius = %f\nArea = %f\nPerimert = %f\n", x_num, y_num, radius_num, area_num, perimetr_num);
     }
 
