@@ -1,0 +1,20 @@
+$ cat .gitignore
+# no executable file
+main
+main.exe.DS_Store
+#no *.o, *.a and *.d files
+*.o
+*.a
+*.d
+# no temporary files
+*~
+*swp
+*.tmp
+# no *.txt files
+*.txt
+# no *.log files
+*.log
+# no .vscode/
+.vscode/
+# always track README.md
+! README.md
