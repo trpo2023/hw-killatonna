@@ -1,8 +1,8 @@
+#include "square.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "square.h"
 #define pi 3.14159265358979323846
 
 int main()
@@ -181,7 +181,9 @@ int main()
         radius_num = atof(radius);
         for (int j = 0, point = 0, minus = 0; j < index; j++) {
             if (radius[0] == '.') {
-                for (unsigned int k = 0; k < strlen(circle) + indexX + indexY + 4; k++)
+                for (unsigned int k = 0;
+                     k < strlen(circle) + indexX + indexY + 4;
+                     k++)
                     printf(" ");
                 printf("^\n");
                 printf("Error at collum %ld: expected '<double>'\n",
@@ -212,7 +214,7 @@ int main()
                 return 3;
             }
         }
-        
+
         if (i + 1u != strlen(object) - 1) {
             printf("Error at column %d: unexpected token", i);
             return 4;
@@ -221,7 +223,12 @@ int main()
         /*area_num = pi * radius_num * radius_num;
         perimetr_num = 2 * pi * radius_num;*/
         square(radius_num, &area_num, &perimetr_num);
-        printf("x = %f\ny = %f\nradius = %f\nArea = %f\nPerimert = %f\n", x_num, y_num, radius_num, area_num, perimetr_num);
+        printf("x = %f\ny = %f\nradius = %f\nArea = %f\nPerimert = %f\n",
+               x_num,
+               y_num,
+               radius_num,
+               area_num,
+               perimetr_num);
     }
 
     else {
